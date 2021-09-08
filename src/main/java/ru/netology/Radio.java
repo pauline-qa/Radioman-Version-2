@@ -5,6 +5,9 @@ public class Radio {
     private int currentStation;
     private int maxStation = 9;
     private int minStation = 0;
+    private int currentVolume;
+    private int maxVolume = 10;
+    private int minVolume = 0;
 
     public int getCurrentStation() {
         return currentStation;
@@ -18,7 +21,8 @@ public class Radio {
         return maxStation;
     }
 
-    public void setNextStation(int currentStation) {
+    public void setNextStation (){
+        int getCurrentStation;
         int newNextStation = 0;
         if (currentStation == maxStation) {
             newNextStation = minStation;
@@ -29,7 +33,10 @@ public class Radio {
         this.currentStation = newNextStation;
     }
 
-    public void setPreviousStation(int currentStation) {
+    public void setPreviousStation(){
+        int getCurrentStation;
+        int getMaxStation;
+        int getMinStation;
         int newPreviousStation = 0;
         if (currentStation == minStation) {
             newPreviousStation = maxStation;
@@ -50,11 +57,6 @@ public class Radio {
         this.currentStation = newStation;
     }
 
-
-    private int currentVolume;
-    private int maxVolume = 10;
-    private int minVolume = 0;
-
     public int getCurrentVolume() {
         return currentVolume;
     }
@@ -67,19 +69,19 @@ public class Radio {
         return maxVolume;
     }
 
-    public void setIncreaseVolume(int currentVolume) {
+    public void setIncreaseVolume () {
+        int getCurrentVolume;
         int newIncreaseVolume = 0;
-        {
             if (currentVolume == maxVolume)
                 newIncreaseVolume = maxVolume;
-        }
         if (currentVolume < maxVolume) {
             newIncreaseVolume = currentVolume + 1;
         }
         this.currentVolume = newIncreaseVolume;
     }
 
-    public void setDecreaseVolume(int currentVolume) {
+    public void setDecreaseVolume () {
+        int getCurrentVolume;
         int newDecreaseVolume = 0;
         if (currentVolume == minVolume) {
             newDecreaseVolume = minVolume;

@@ -10,7 +10,7 @@ class RadioTest {
     void setNextStation() {
         Radio rad = new Radio();
         rad.setStation(3);
-        rad.setNextStation(rad.getCurrentStation());
+        rad.setNextStation();
         int actual = rad.getCurrentStation();
         int expected = 4;
         assertEquals(expected, actual);
@@ -20,7 +20,7 @@ class RadioTest {
     void setPreviousStation() {
         Radio rad = new Radio();
         rad.setStation(7);
-        rad.setPreviousStation(rad.getCurrentStation());
+        rad.setPreviousStation();
         int expected = 6;
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
@@ -30,7 +30,7 @@ class RadioTest {
     void shouldNotSetStationAboveMax() {
         Radio rad = new Radio();
         int expected = rad.getCurrentStation();
-        rad.setStation(rad.getMaxStation() + 15);
+        rad.setStation(rad.getMaxStation() + 100);
         int actual = rad.getCurrentStation();
         assertEquals(expected, actual);
     }
@@ -48,7 +48,7 @@ class RadioTest {
     void setStationAboveMaxStation() {
         Radio rad = new Radio();
         rad.setStation(9);
-        rad.setNextStation(rad.getMaxStation());
+        rad.setNextStation();
         int actual = rad.getCurrentStation();
         int expected = 0;
         assertEquals(expected, actual);
@@ -58,18 +58,17 @@ class RadioTest {
     void setStationBelowMinStation() {
         Radio rad = new Radio();
         rad.setStation(0);
-        rad.setPreviousStation(rad.getMinStation());
+        rad.setPreviousStation();
         int actual = rad.getCurrentStation();
         int expected = 9;
         assertEquals(expected, actual);
     }
 
-
     @Test
     void setIncreaseVolume() {
         Radio rad = new Radio();
         rad.setVolume(3);
-        rad.setIncreaseVolume(rad.getCurrentVolume());
+        rad.setIncreaseVolume();
         int actual = rad.getCurrentVolume();
         int expected = 4;
         assertEquals(expected, actual);
@@ -79,7 +78,7 @@ class RadioTest {
     void setDecreaseVolume() {
         Radio rad = new Radio();
         rad.setVolume(7);
-        rad.setDecreaseVolume(rad.getCurrentVolume());
+        rad.setDecreaseVolume();
         int expected = 6;
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
@@ -89,7 +88,7 @@ class RadioTest {
     void setVolumeAboveMaxVolume() {
         Radio rad = new Radio();
         rad.setVolume(10);
-        rad.setIncreaseVolume(rad.getMaxVolume());
+        rad.setIncreaseVolume();
         int actual = rad.getCurrentVolume();
         int expected = 10;
         assertEquals(expected, actual);
@@ -99,7 +98,7 @@ class RadioTest {
     void setVolumeBelowMinVolume() {
         Radio rad = new Radio();
         rad.setVolume(0);
-        rad.setDecreaseVolume(rad.getMinVolume());
+        rad.setDecreaseVolume();
         int actual = rad.getCurrentStation();
         int expected = 0;
         assertEquals(expected, actual);
